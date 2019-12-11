@@ -16,17 +16,14 @@ jobs:
     - python: '3.8'
 
     # PyPy (in official virtualenv)
-    - python: pypy
-      env: TOXENV=pypy
-    - python: pypy3
-      env: TOXENV=pypy3
+    - python: 'pypy'
+    - python: 'pypy3'
 
     # Correctness tests. "coverage" toxenv runs tests, so no need to run
     # TOXENV=py38.
     #
     # TODO: pytype doesn't yet support 3.8, switch this with 3.8 above when it
     # does
-
     - python: '3.7'
       env: TOXENV=black,pylint,pytype,bandit,coverage
 
