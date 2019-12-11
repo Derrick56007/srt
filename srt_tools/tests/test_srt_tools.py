@@ -3,7 +3,7 @@
 import os
 import subprocess
 import tempfile
-from nose.tools import assert_true
+from nose.tools import assert_true, assert_in, assert_not_in
 from parameterized import parameterized
 
 try:
@@ -86,6 +86,11 @@ def assert_supports_all_io_methods(cmd, exclude_output=False, exclude_stdin=Fals
                     encoding="gb2312",
                 )
         assert_true(len(set(outputs)) == 1, repr(outputs))
+
+        if os.name == "nt":
+            assert_in("\r\n", outputs[0])
+        else:
+            assert_not_in("\r\n", outputs[0])
     finally:
         os.remove(out_file)
 
