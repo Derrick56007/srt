@@ -16,7 +16,7 @@ BOTTOM = r"{\an2}"
 def parse_args():
     examples = {
         "Merge English and Chinese subtitles": "srt mux -i eng.srt -i chs.srt -o both.srt",
-        "Merge subtitles, with one on top and one at the bottom": "srt mux -t -i eng.srt -i chs.srt -o both.srt",
+        "Merge subtitles, with one on top and one at the bottom": "srt mux -t -i top.srt -i bottom.srt -o both.srt",
     }
     parser = srt_tools.utils.basic_parser(
         description=__doc__, examples=examples, multi_input=True
