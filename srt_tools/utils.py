@@ -7,11 +7,12 @@ import logging
 import sys
 import itertools
 import collections
+import functools
 
 if sys.version_info < (3,):
     _open = codecs.open
 else:
-    _open = open
+    _open = functools.partial(open, newline="")
 
 STDIN_BYTESTREAM = getattr(sys.stdin, "buffer", sys.stdin)
 STDOUT_BYTESTREAM = getattr(sys.stdout, "buffer", sys.stdout)
