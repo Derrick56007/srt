@@ -12,8 +12,7 @@ jobs:
     # CPython (in official virtualenv)
     - python: '3.5'
     - python: '3.6'
-    # 3.7 is below
-    - python: '3.8'
+    - python: '3.7'
 
     # PyPy (in official virtualenv)
     - python: pypy3
@@ -21,11 +20,7 @@ jobs:
 
     # Correctness tests. "coverage" toxenv runs tests, so no need to run
     # TOXENV=py38.
-    #
-    # TODO: pytype doesn't yet support 3.8, switch this with 3.8 above when it
-    # does
-
-    - python: '3.7'
+    - python: '3.8'
       env: TOXENV=black,pylint,pytype,bandit,coverage
 
     ## OSX
